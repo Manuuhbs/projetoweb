@@ -12,7 +12,7 @@ $colares = $controller->listar();
 <body>
   <form method="post" action="">
     <label>Código de Barras</label>
-    <input type="text" name="cdbarras" maxlength="11" required>
+    <input type="text" name="cdbarras" maxlength="13" required>
     <label>Descrição</label>
     <input type="text" name="descricao" required>
     <label>Preço</label>
