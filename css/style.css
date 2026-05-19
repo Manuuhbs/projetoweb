@@ -1,26 +1,29 @@
-
 * {
   padding: 0;
   margin: 0;
+  text-decoration: none;
 }
-html{
-    height: 100%;
-    width: 100%;
-}
-body {
-  margin: 0;
-  display: flex;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+html {
   height: 100%;
   width: 100%;
 }
+body {
+  margin: 0;
+  font-family: sans-serif;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
 .parte-esquerda {
   background-image: url("../img/joias1.jpg");
-  width: 35%;
+  width: 30%;
+  height: 100%;
 }
 .parte-direita {
   background-image: url("../img/joias1.jpg");
-  width: 35%;
+  width: 30%;
+  height: 100%;
 }
 .container {
   display: flex;
@@ -28,40 +31,148 @@ body {
   align-items: center;
   flex-direction: column;
   font-size: 40px;
-  background-color: rgb(35, 197, 189);
+  background-color: rgb(134, 245, 239);
   width: 100%;
   height: 100%;
 }
 .menu {
-  width: 30%;
+  width: 40%;
   height: 100%;
 }
 ul {
   list-style: none;
   padding: 0;
- padding-top: 70px;
+  padding-top: 70px;
 }
 
 h5 {
-    padding-top: 70px;
   font-weight: normal;
+  font-size: 40px;
 }
 
-a {
+li > a {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   text-decoration: none;
-  color: rgb(215, 255, 37);
+  color: rgb(101, 190, 57);
 }
-a:hover {
-  color: rgb(69, 42, 165);
+li > a:hover {
+  color: rgb(110, 194, 107);
 }
 
 .titulo {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  color: rgb(0, 70, 5);
   display: flex;
   align-items: center;
   text-align: center;
   margin: 0;
+  justify-content: center;
+  min-height: 120px;
+  border: 2px solid rgb(0, 70, 5);
+  width: 99%;
 }
 
 li {
   padding: 20px;
+}
+
+.parte-esquerda-colar {
+  width: 20%;
+  background-image: url("../img/colar.png");
+  height: 100%;
+  background-size: contain;
+}
+.parte-direita-colar {
+  width: 20%;
+  background-image: url("../img/colar.png");
+  height: 100%;
+  background-size: contain;
+}
+
+.parte-esquerda-bracelete {
+  width: 20%;
+  background-image: url("../img/bracelete.png");
+  height: 100%;
+  background-size: contain;
+}
+.parte-direita-bracelete {
+  width: 20%;
+  background-image: url("../img/bracelete.png");
+  height: 100%;
+  background-size: contain;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  height: 100%;
+  align-items: center;
+  background-color: rgb(208, 255, 210);
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(134, 245, 239);
+  width: 100%;
+  height: 30%;
+  padding-top: 80px;
+  gap: 10px;
+}
+.form > input {
+  min-width: 400px;
+  font-size: 16px;
+  border-radius: 10px;
+  text-align: center;
+  min-height: 26px;
+}
+
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: rgb(208, 255, 210);
+}
+
+th,
+td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+label {
+  font-size: medium;
+}
+
+.botoes {
+  min-width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.botoes > button > a {
+  font-size: 16px;
+  color: black;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  display: block;
+}
+
+.botoes > button {
+  font-size: 16px;
+  padding: 8px;
+  border-radius: 8px;
+  background-color: rgb(208, 255, 210);
+  color: black;
+  min-width: 180px;
+}
+
+.botoes > button:hover {
+  background-color: rgb(125, 255, 132);
+  color: black;
+  cursor: pointer;
 }
