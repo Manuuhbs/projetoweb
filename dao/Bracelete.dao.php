@@ -25,6 +25,40 @@ class BraceleteDao
     ]);
   }
 
+  public function buscarPorId($id)
+  {
+    $sql = "SELECT * FROM $this->tabela WHERE idbracelete = ?";
+    $stmt = $this->connection->prepare($sql);
+    $stmt->execute([$id]);
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if (!$row)
+      return null;
+
+    return new Bracelete(
+      $row['cdbarras'],
+      $row['descricao'],
+      $row['preco'],
+      $row['idbracelete']
+    );
+  }
+  public function atualizar(Bracelete $bracelete)
+  {
+    $sql = "UPDATE $this->tabela SET cdbarras = ?, descricao = ?, preco = ? WHERE idbracelete = ?";
+    $stmt = $this->connection->prepare($sql);
+    $stmt->execute([
+      $bracelete->getCdBarras(),
+      $bracelete->getDescricao(),
+      $bracelete->getPreco(),
+      $bracelete->getIdBracelete()
+    ]);
+  }
+  public function deletar($id)
+  {
+    $sql = "DELETE FROM $this->tabela WHERE idbracelete = ?";
+    $stmt = $this->connection->prepare($sql);
+    $stmt->execute([$id]);
+  }
   public function listar()
   {
     $sql = "SELECT * FROM $this->tabela";
@@ -32,7 +66,9 @@ class BraceleteDao
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     $braceletes = [];
+
     foreach ($rows as $row) {
+
       $braceletes[] = new Bracelete(
         $row['cdbarras'],
         $row['descricao'],
@@ -40,6 +76,7 @@ class BraceleteDao
         $row['idbracelete']
       );
     }
+
     return $braceletes;
   }
 }
