@@ -16,6 +16,8 @@
       <ul>
         <li><a href="colar.php">Colar</a></li>
         <li><a href="bracelete.php">Bracelete</a></li>
+        <li><a href="cliente.php">Cliente</a></li>
+        <li><a href="feedback.php">Feedback</a></li>
       </ul>
     </div>
 

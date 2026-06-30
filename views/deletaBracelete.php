@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../controllers/Bracelete.controller.php';
+require_once __DIR__ . '/../controllers/BraceleteController.php';
 require_once __DIR__ . '/../config/console.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

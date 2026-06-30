@@ -101,13 +101,44 @@ li {
   height: 100%;
   background-size: contain;
 }
+.parte-esquerda-feedback {
+  width: 20%;
+  background-image: url("../img/feedback.png");
+  height: 100%;
+  background-size: contain;
+}
+.parte-direita-feedback {
+  width: 20%;
+  background-image: url("../img/feedback.png");
+  height: 100%;
+  background-size: contain;
+}
+.parte-esquerda-cliente {
+  width: 20%;
+  background-image: url("../img/cliente.png");
+  height: 100%;
+  background-size: contain;
+}
+.parte-direita-cliente {
+  width: 20%;
+  background-image: url("../img/cliente.png");
+  height: 100%;
+  background-size: contain;
+}
 main {
   display: flex;
   flex-direction: column;
   width: 60%;
-  height: 100%;
+  min-height: 100%;
   align-items: center;
   background-color: rgb(208, 255, 210);
+}
+
+.coluna-esquerda,
+.coluna-direita {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 .form {
   display: flex;
@@ -119,6 +150,40 @@ main {
   padding-top: 80px;
   gap: 10px;
 }
+.form-edita {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(134, 245, 239);
+  width: 100%;
+  max-width: 100%;
+  gap: 10px;
+  border-radius: 12px;
+}
+.botoes-edita {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding-top: 10px;
+}
+.botoes-edita > a,
+.botoes-edita > button {
+  font-size: 16px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background-color: rgb(208, 255, 210);
+  color: black;
+  min-width: 150px;
+  text-align: center;
+  border: 1px solid #aaa;
+  text-decoration: none;
+}
+.botoes-edita > a:hover,
+.botoes-edita > button:hover {
+  background-color: rgb(125, 255, 132);
+  color: black;
+  cursor: pointer;
+}
 .form > input {
   min-width: 400px;
   font-size: 16px;
@@ -126,11 +191,50 @@ main {
   text-align: center;
   min-height: 26px;
 }
+.form-edita > input {
+  min-width: 400px;
+  font-size: 16px;
+  border-radius: 10px;
+  text-align: center;
+  min-height: 26px;
+}
+.formulario-cliente input {
+  min-width: 400px;
+  font-size: 16px;
+  border-radius: 20px;
+  text-align: center;
+  min-height: 26px;
+}
+.formulario-cliente {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(134, 245, 239);
+  width: 100%;
+  padding-top: 80px;
+  gap: 10px;
+}
+.form-colunas {
+  padding-top: 20px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  background-color: rgb(134, 245, 239);
+}
 
 .tabela {
   width: 100%;
   border-collapse: collapse;
   background-color: rgb(208, 255, 210);
+  table-layout: fixed;
+}
+
+.tabela th,
+.tabela td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 120px;
 }
 
 th,
@@ -148,8 +252,9 @@ label {
   min-width: 400px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 40px;
+  padding-bottom: 30px;
 }
 
 .botoes > button > a {
@@ -192,4 +297,52 @@ label {
 .acoes span {
   background-color: white;
   border: 2px solid red;
+}
+
+.asterisco {
+  font-size: 18px;
+  color: #ff2c2c;
+}
+.botoes-edita {
+  min-width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 40px;
+  padding-bottom: 30px;
+}
+.botoes-edita > button > a {
+  font-size: 16px;
+  color: black;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  display: block;
+}
+
+.botoes-edita > button {
+  font-size: 16px;
+  padding: 8px;
+  border-radius: 10px;
+  background-color: rgb(208, 255, 210);
+  color: black;
+  min-width: 180px;
+}
+
+.botoes-edita > button:hover {
+  background-color: rgb(125, 255, 132);
+  color: black;
+  cursor: pointer;
+}
+
+.form-edita {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(134, 245, 239);
+  width: 100%;
+  height: 100%;
+  padding-top: 80px;
+  gap: 10px;
 }

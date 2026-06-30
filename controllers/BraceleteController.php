@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../dao/Bracelete.dao.php';
+require_once __DIR__ . '/../dao/BraceleteDao.php';
 
 class BraceleteController
 {
@@ -23,9 +23,12 @@ class BraceleteController
       $_POST['descricao'],
       $_POST['preco']
     );
-
+    if (!$this->validaCampos($bracelete)) {
+      return false;
+    }
     $dao = new BraceleteDao();
     $dao->salvar($bracelete);
+    return true;
   }
 
   public function atualizar()
@@ -47,4 +50,17 @@ class BraceleteController
     $dao->deletar($_POST['idbracelete']);
 
   }
+  public function validaCampos(Bracelete $bracelete)
+  {
+    if (
+      empty($bracelete->getCdBarras()) ||
+      empty($bracelete->getDescricao()) ||
+      empty($bracelete->getPreco())
+    ) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
 }

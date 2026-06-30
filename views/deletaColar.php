@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../controllers/Colar.Controller.php';
+require_once __DIR__ . '/../controllers/ColarController.php';
 require_once __DIR__ . '/../config/console.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     console_log("top");

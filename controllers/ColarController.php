@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../dao/Colar.dao.php';
+require_once __DIR__ . '/../dao/ColarDao.php';
 
 class ColarController
 {
@@ -23,7 +23,9 @@ class ColarController
       $_POST['descricao'],
       $_POST['preco']
     );
-
+    if (!$this->validaCampos($colar)) {
+      return false;
+    }
     $dao = new ColarDao();
     $dao->salvar($colar);
   }
@@ -46,5 +48,17 @@ class ColarController
     $dao = new ColarDao();
     $dao->deletar($_POST['idcolar']);
 
+  }
+  public function validaCampos(Colar $colar)
+  {
+    if (
+      empty($colar->getCdBarras()) ||
+      empty($colar->getDescricao()) ||
+      empty($colar->getPreco())
+    ) {
+      return false;
+    } else {
+      return true;
+    }
   }
 }

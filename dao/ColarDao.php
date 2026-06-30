@@ -1,7 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../config/Database.php';
-require_once __DIR__ . '/../models/colar.model.php';
+require_once __DIR__ . '/../models/ColarModel.php';
 
 class ColarDao
 {
@@ -14,7 +14,7 @@ class ColarDao
     $this->connection = $db->connection;
   }
 
-  public function salvar(colar $colar)
+  public function salvar(Colar $colar)
   {
     $sql = "INSERT INTO $this->tabela (cdbarras, descricao, preco) VALUES (?, ?, ?)";
     $stmt = $this->connection->prepare($sql);

@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../controllers/Bracelete.controller.php';
+require_once __DIR__ . '/../controllers/BraceleteController.php';
 require_once __DIR__ . '/../config/console.php';
 $controller = new BraceleteController();
 
@@ -13,12 +13,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $id = $_GET['idbracelete'] ?? null;
 console_log($id);
 $bracelete = $id ? $controller->buscarPorId($id) : null;
-
-if (!$bracelete) {
-    console_log("gabreu");
-    header("Location: bracelete.php");
-    exit;
-}
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -26,14 +20,12 @@ if (!$bracelete) {
 <head>
     <meta charset="UTF-8">
     <title>Editar Bracelete</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
-
-    <h2>Editar Bracelete</h2>
-
-    <form action="" method="POST">
-
+    <form action="" method="POST" class="form-edita">
+        <h2>Editar Bracelete</h2>
         <input type="hidden" name="idbracelete" value="<?= htmlspecialchars($bracelete->getIdBracelete()) ?>">
 
         <label>Codigo de Barras</label>
@@ -46,11 +38,13 @@ if (!$bracelete) {
 
         <label>Preco</label>
         <input type="text" name="preco" value="<?= htmlspecialchars($bracelete->getPreco()) ?>" required>
-        <br>
-        <button type="submit">Salvar alterações</button>
+        <div class="botoes-edita">
+            <a href="bracelete.php">Cancelar</a>
+            <button type="submit">Salvar alterações</button>
+        </div>
     </form>
 
-    <a href="bracelete.php">Cancelar</a>
+
 
 </body>
 

@@ -1,7 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../config/Database.php';
-require_once __DIR__ . '/../models/Bracelete.model.php';
+require_once __DIR__ . '/../models/BraceleteModel.php';
 
 class BraceleteDao
 {

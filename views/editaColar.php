@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../controllers/Colar.controller.php';
+require_once __DIR__ . '/../controllers/ColarController.php';
 require_once __DIR__ . '/../config/console.php';
 $controller = new ColarController();
 
@@ -13,45 +13,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $id = $_GET['idcolar'] ?? null;
 console_log($id);
 $colar = $id ? $controller->buscarPorId($id) : null;
-
-if (!$colar) {
-    console_log("gabreu");
-    header("Location: colar.php");
-    exit;
-}
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <title>Editar Colar</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
-
-    <h2>Editar colar</h2>
-
-    <form action="" method="POST">
-
+    <form action="" method="POST" class="form-edita">
+        <h2>Editar colar</h2>
         <input type="hidden" name="idcolar" value="<?= htmlspecialchars($colar->getIdColar()) ?>">
-
         <label>Codigo de Barras</label>
         <input type="text" name="cdbarras" value="<?= htmlspecialchars($colar->getCdBarras()) ?>" required>
         <br>
-
         <label>Descricao</label>
         <input type="text" name="descricao" value="<?= htmlspecialchars($colar->getDescricao()) ?>" required>
         <br>
-
         <label>Preco</label>
         <input type="text" name="preco" value="<?= htmlspecialchars($colar->getPreco()) ?>" required>
-        <br>
-        <button type="submit">Salvar alterações</button>
+        <div class="botoes-edita">
+            <a href="colar.php">Cancelar</a>
+            <button type="submit">Salvar alterações</button>
+        </div>
     </form>
-
-    <a href="colar.php">Cancelar</a>
-
 </body>
 
 </html>

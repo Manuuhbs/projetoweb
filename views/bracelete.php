@@ -1,11 +1,12 @@
 <?php
-require_once __DIR__ . '/../controllers/Bracelete.controller.php';
+require_once __DIR__ . '/../controllers/BraceleteController.php';
 require_once __DIR__ . '/../config/console.php';
 $controller = new BraceleteController();
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (isset($_POST['action']) && $_POST['action'] === 'salvar') {
-    $controller->salvar();
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['action'] && $_POST['action'] === 'salvar') {
+  if ($controller->salvar()) {
     header("Location: bracelete.php");
+  } else {
+    echo "<script>alert('Os campos não podem ser vazios!');</script>";
   }
 }
 $braceletes = $controller->listar();
@@ -28,15 +29,15 @@ $braceletes = $controller->listar();
   <main>
     <form method="post" action="" class="form">
       <input type="hidden" name="action" value="salvar">
-      <label>Código de Barras</label>
-      <input type="text" name="cdbarras" maxlength="13" required>
-      <label>Descrição</label>
-      <input type="text" name="descricao" required>
-      <label>Preço</label>
-      <input type="number" name="preco" step="0.01" required>
+      <label>Código de Barras<span class="asterisco" title="Campo obrigatório">*</span></label>
+      <input type="text" name="cdbarras" maxlength="13">
+      <label>Descrição<span class="asterisco" title="Campo obrigatório">*</span></label>
+      <input type="text" name="descricao">
+      <label>Preço <span class="asterisco" title="Campo obrigatório">*</span></label>
+      <input type="number" name="preco" step="0.01">
       <div class="botoes">
-        <button type="submit">Salvar</button>
         <button><a href="index.php">Voltar</a></button>
+        <button type="submit">Salvar</button>
       </div>
     </form>
     <table class="tabela">
