@@ -32,7 +32,7 @@ $braceletes = $controller->listar();
       <label>Código de Barras<span class="asterisco" title="Campo obrigatório">*</span></label>
       <input type="text" name="cdbarras" maxlength="13">
       <label>Descrição<span class="asterisco" title="Campo obrigatório">*</span></label>
-      <input type="text" name="descricao">
+      <input type="text" name="descricao" maxlength="255">
       <label>Preço <span class="asterisco" title="Campo obrigatório">*</span></label>
       <input type="number" name="preco" step="0.01">
       <div class="botoes">

@@ -28,6 +28,7 @@ class ColarController
     }
     $dao = new ColarDao();
     $dao->salvar($colar);
+    return true;
   }
 
   public function atualizar()
